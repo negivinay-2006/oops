@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+class invoice
+{
+	private:
+	string Number;
+	string Description;
+	int Quantity;
+	double Price;
+	public:
+	invoice(string Number,string Description,int Quantity,double Price)
+	{
+		this->Number=Number;
+		this->Description=Description;
+		this->Quantity=Quantity;
+		this->Price=Price;
+	}
+	void SetNumber(string Number)
+	{	
+		this->Number=Number;
+	}
+	void SetDescription(string Description)
+	{	
+		this->Description=Description;
+	}
+	void SetQuantity(int Quantity)
+	{	
+		this->Quantity=Quantity;
+	}
+	void SetPrice(double Price)
+	{
+		this->Price=Price;
+	}
+	string GetNumber()
+	{
+		return Number;
+	}
+	string GetDescription()
+	{
+		return Description;
+	}
+	int GetQuantity()
+	{
+		return Quantity;
+	}
+	double GetPrice()
+	{
+		return Price;
+	}
+	void Print(double t)
+	{
+		cout<<"Part number "<<Number<<endl;
+		cout<<"Part Description "<<Description<<endl;
+		cout<<"total ammount "<<t;
+	}	
+};
+double getInvoiceammount(invoice d)
+	{	
+		if (d.GetQuantity()<0)
+		{
+			d.SetQuantity(0);
+		}
+		if (d.GetPrice()<0)
+		{
+			d.SetPrice(0);
+		}
+		return d.GetQuantity()*d.GetPrice();
+	}	
+int main()
+{
+	int Quantity;
+	double Price,ammount;
+	invoice d("50","Piston",50,20.0);
+	cout <<"enter quantity and price";
+	cin>>Quantity>>Price;
+	d.SetQuantity(Quantity);
+	d.SetPrice(Price);
+	ammount=getInvoiceammount(d);
+	d.Print(ammount);
+	return 0;
+}
