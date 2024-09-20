@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+class complex
+{
+	private:
+		int real;
+		int img;
+	public:
+		void setreal(int real)
+		{
+			this->real=real;
+		}	
+		void setimg(int img)
+		{
+			this->img=img;
+		}
+		void operator +(complex d2)
+		{
+			int real=this->real+d2.real;
+			int img=this->img+d2.img;
+			cout<<"addition ="<<real<<"+"<<img<<"i"<<endl;
+		}
+		void operator -(complex d2)
+		{
+			if (img<d2.img)
+			{	real=this->real-d2.real;
+				img=this->img-d2.img;
+				cout<<"subtraction ="<<real<<img<<"i"<<endl;
+			}
+			else
+			{
+				real=this->real-d2.real;
+				img=this->img-d2.img;
+				cout<<real<<"+"<<img<<"i"<<endl;
+			}
+		}
+		void operator ==(complex d2)
+		{
+			if (real==d2.real&&img==d2.img)
+			{	
+				cout<<"equal";
+			}
+			else
+			{
+				cout<<"not equal";
+			}
+		}
+};
+int main ()
+{
+	int real,img,real1,img1;
+	complex d1,d2;
+	cout<<"enter the real and imaginary part "<<endl;
+	cin>>real>>img;
+	cout<<"enter the real and imaginary part "<<endl;
+	cin>>real1>>img1;
+	d1.setreal(real);
+	d2.setreal(real1);
+	d1.setimg(img);
+	d2.setimg(img1);
+	d1+d2;
+	d1-d2;
+	d1==d2;
+return 0;
+}
