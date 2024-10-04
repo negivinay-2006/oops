@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+class Student
+{
+	private:
+	int age=18;
+	string name="vinay";
+	string enrollno="231GHX2110";
+	int marks=66;
+	public:
+	void display()
+	{
+		cout<<"name "<<name<<endl;
+		cout<<"age "<<age<<endl;
+		cout<<"Enroll No "<<enrollno<<endl;
+		cout<<"Marks "<<marks<<endl<<endl;
+	}
+};
+class faculty
+{
+	private:
+	string name="SIR";
+	string code="500EMP455";
+	int sallary=120003;
+	string department="computer science";
+	string experience="5 years";
+	string gender="Male";
+	public:
+	void display()
+	{
+		cout<<"Name "<<name<<endl;
+		cout<<"employee code "<<code<<endl;
+		cout<<"sallary "<<sallary<<endl;
+		cout<<"Department "<<department<<endl;
+		cout<<"Experience "<<experience<<endl;
+		cout<<"Gender "<<gender<<endl;
+	}
+};
+class person:Student,faculty
+{
+	public:
+	void display()
+	{
+		Student::display();
+		faculty::display();
+	}
+};
+int main()
+{
+	person s;
+	s.display();
+	return 0;
+}	
+	
+
+	
