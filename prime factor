@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+class a
+{
+	int count2=0;
+	public:
+	void function(int &value)
+	{
+		value*=2;
+		count2++;
+	}
+	int get2()
+	{
+		return count2;
+	}
+};
+class b
+{
+	int count3=0;
+	public:
+	void function(int &value)
+	{
+		value*=3;
+		count3++;
+	}
+	int get3()
+	{
+		return count3;
+	}
+};
+class c
+{
+	int count5=0;
+	public:
+	void function(int &value)
+	{
+		value*=5;
+		count5++;
+	}
+	int get5()
+	{
+		return count5;
+	}
+};
+class D:a,b,c
+{
+	int value=1;
+	public:
+	void updatevalue(int newvalue)
+	{
+		
+		while (newvalue!=0)
+		{
+			if(newvalue%2==0)
+			{
+				a::function(value);
+				newvalue=newvalue/2;
+			}
+			else if(newvalue%3==0)
+			{
+				b::function(value);
+				newvalue=newvalue/3;
+			}
+			else if(newvalue%5==0)
+			{
+				c::function(value);
+				newvalue=newvalue/5;
+			}
+			else 
+			{
+				newvalue=0;
+			}
+		}
+	}
+	void factor()
+	{
+		cout<<"2 "<<get2()<<" times"<<endl;
+		cout<<"3 "<<get3()<<" times"<<endl;
+		cout<<"5 "<<get5()<<" times"<<endl;
+	}
+};
+int main()
+{
+	D d1;
+	d1.updatevalue(60);
+	d1.factor();
+	return 0;
+}
+		
+				
+			
+			
+	
+	
+	
+	
+	
+	
+	
